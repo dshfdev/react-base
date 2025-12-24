@@ -1,0 +1,76 @@
+@use '@/styles/variables.scss' as *;
+
+.promo {
+  position: relative;
+  overflow: hidden;
+  max-height: 972px;
+  height: calc(100dvh - 108px);
+  background-color: $bg-color-secondary;
+  color: $text-color-secondary;
+
+  .wrapper {
+    margin-top: 116px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .title {
+      font-size: 70px;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      margin-top: 20px;
+      max-width: 478px;
+    }
+
+    .img {
+      position: absolute;
+      left: 48%;
+      top: 55px;
+      width: 783px;
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .promo {
+    height: calc(100dvh - 66px);
+    padding: 30px 0 40px;
+
+    .wrapper {
+      margin-top: 80px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .promo {
+    height: 553px;
+
+    .wrapper {
+      align-items: center;
+      margin-top: 0;
+      height: 100%;
+
+      .title {
+        font-size: 30px;
+      }
+
+      .subtitle {
+        text-align: center;
+        max-width: 300px;
+        margin-top: 10px;
+      }
+
+      .img {
+        width: 273px;
+        left: 50%;
+        top: unset;
+        bottom: 40px;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

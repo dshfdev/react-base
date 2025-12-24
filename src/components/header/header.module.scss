@@ -1,0 +1,25 @@
+@use '@/styles/variables.scss' as *;
+
+.header {
+  background: $bg-color-secondary;
+  color: $text-color-secondary;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    .content {
+      padding: 10px 0;
+    }
+  }
+}

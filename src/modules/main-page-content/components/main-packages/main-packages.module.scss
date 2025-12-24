@@ -1,0 +1,38 @@
+@use '@/styles/variables.scss' as *;
+
+.package {
+  .wrapper {
+    .title {
+      font-size: 50px;
+      font-weight: 600;
+    }
+
+    .packageList {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 60px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .package {
+    padding: 60px 0;
+
+    .wrapper {
+      .title {
+        font-size: 30px;
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .packageList {
+        margin-top: 40px;
+        gap: 30px;
+      }
+    }
+  }
+}
