@@ -63,6 +63,11 @@
     font-size: 18px;
     margin-bottom: 51px;
   }
+
+  .packageBtn {
+    margin-top: auto;
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -79,6 +84,10 @@
       font-size: 16px;
       max-width: 250px;
       margin-bottom: 40px;
+    }
+
+    .packageBtn {
+      padding: 17px 54px;
     }
   }
 }
