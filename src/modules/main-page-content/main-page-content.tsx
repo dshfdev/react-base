@@ -9,13 +9,11 @@ import { MainTeachers } from './components/main-teachers';
 export const MainPageContent = () => {
   return (
     <>
-      <main>
-        <MainPromo />
-        <MainBenefits />
-        <MainTeachers />
-        <MainPackages />
-        <MainForm />
-      </main>
+      <MainPromo />
+      <MainBenefits />
+      <MainTeachers />
+      <MainPackages />
+      <MainForm />
     </>
   );
 };
