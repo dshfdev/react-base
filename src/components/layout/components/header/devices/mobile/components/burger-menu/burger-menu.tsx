@@ -11,23 +11,23 @@ interface BurgerMenuProps {
   onClose: () => void;
 }
 
-export const BurgerMenu = ({ onClose }: BurgerMenuProps) => {
+export const BurgerMenu = ({ isOpen, onClose }: BurgerMenuProps) => {
   return (
     <div className={styles.burgerMenu}>
-      <IconButton additionalClassname={styles.closeButton} onClick={onClose}>
-        <CloseIcon />
-      </IconButton>
-      <nav>
+      <nav role="menu" aria-hidden={!isOpen}>
         <ul className={styles.navbar}>
-          {NAVBAR_ITEMS.map((link) => (
-            <li key={link.id}>
-              <Link href={link.href} onClick={onClose} additionalClassname={styles.link}>
-                {link.title}
+          {NAVBAR_ITEMS.map((navbarItem) => (
+            <li key={navbarItem.id}>
+              <Link href={navbarItem.href} onClick={onClose} additionalClassname={styles.link}>
+                {navbarItem.title}
               </Link>
             </li>
           ))}
         </ul>
       </nav>
+      <IconButton additionalClassname={styles.closeButton} onClick={onClose}>
+        <CloseIcon />
+      </IconButton>
     </div>
   );
 };
