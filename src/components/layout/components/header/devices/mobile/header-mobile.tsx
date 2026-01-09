@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { BurgerIcon } from '@/assets/icons';
 import { IconButton } from '@/components/icon-button';
+import { useScrollLock } from '@/hooks';
 
 import { Logo } from '../../../logo';
 import { PhoneCallButton } from '../../../phone-call-button';
@@ -11,9 +12,16 @@ import styles from './header-mobile.module.scss';
 
 export const HeaderMobile = () => {
   const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
+  const { lockScroll, unlockScroll } = useScrollLock();
 
-  const handleBurgerMenuOpen = () => setIsBurgerMenuOpen(true);
-  const handleBurgerMenuClose = () => setIsBurgerMenuOpen(false);
+  const handleBurgerMenuOpen = () => {
+    setIsBurgerMenuOpen(true);
+    lockScroll();
+  };
+  const handleBurgerMenuClose = () => {
+    setIsBurgerMenuOpen(false);
+    unlockScroll();
+  };
 
   return (
     <div className={styles.headerMobile}>
