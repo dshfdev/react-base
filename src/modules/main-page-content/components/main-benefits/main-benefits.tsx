@@ -28,7 +28,7 @@ const benefitItems: BenefitItemsType = [
 
 export const MainBenefits = () => {
   return (
-    <section className={styles.benefits}>
+    <section id="about" className={styles.benefits}>
       <Container>
         <div className={styles.wrapper}>
           <h2 className={styles.title}>Что вы получите после курса</h2>
