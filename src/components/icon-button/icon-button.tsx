@@ -16,9 +16,13 @@ export const IconButton = ({
   ...rest
 }: IconButtonProps) => {
   const createClassname = () => {
-    const baseClass = `${styles.iconButton}`;
+    const baseClassname = `${styles.iconButton}`;
 
-    return additionalClassname ? `${baseClass} ${additionalClassname}` : baseClass;
+    if (additionalClassname) {
+      return `${baseClassname} ${additionalClassname}`;
+    }
+
+    return baseClassname;
   };
 
   if (href) {

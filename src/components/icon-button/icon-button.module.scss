@@ -1,15 +1,16 @@
 @use '@/styles/variables.scss' as *;
 
 .iconButton {
-  width: 44px;
-  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid $controls-color-secondary;
   border-radius: 10px;
+  padding: 10px;
+}
 
-  &:hover {
+@media (hover: hover) {
+  .iconButton:hover {
     background-color: $controls-bg-secondary-hover;
   }
 }
