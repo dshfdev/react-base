@@ -12,7 +12,7 @@ export const Footer = () => {
         <div className={styles.content}>
           <div className={styles.wrapper}>
             <Logo />
-            <PhoneCallButton />
+            <PhoneCallButton isFromFooter />
           </div>
           <div className={styles.copyright}>© ROBO.SCHOOL</div>
         </div>

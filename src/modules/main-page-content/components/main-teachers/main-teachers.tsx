@@ -11,7 +11,7 @@ export const MainTeachers = () => {
   console.log(teachers);
 
   return (
-    <section className={styles.teachers}>
+    <section id="teachers" className={styles.teachers}>
       <Container>
         <div className={styles.wrapper}>
           <h2 className={styles.title}>Профессиональные тренеры</h2>
