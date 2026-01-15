@@ -1,0 +1,44 @@
+@use '@/styles/variables.scss' as *;
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  bottom: 0.5rem;
+
+  .icon {
+    width: 28px;
+    height: 28px;
+    padding: 2px;
+    position: relative;
+    top: 8px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .text {
+    position: absolute;
+    bottom: 100%;
+    padding: 15px 20px;
+    background-color: $bg-color-primary;
+    color: $text-color-primary;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 5px;
+    box-shadow: $shadow-light;
+    white-space: normal;
+    word-break: break-word;
+    max-width: 260px;
+    width: max-content;
+    z-index: 10;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .tooltip {
+    .text {
+      transform: translateX(-50%);
+    }
+  }
+}
