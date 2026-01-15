@@ -7,6 +7,8 @@
   bottom: 0.5rem;
 
   .icon {
+    width: 28px;
+    height: 28px;
     padding: 2px;
     position: relative;
     top: 8px;
@@ -29,13 +31,7 @@
     max-width: 260px;
     width: max-content;
     z-index: 10;
-    display: none;
-    pointer-events: none;
-  }
-
-  .textVisible {
     display: block;
-    pointer-events: auto;
   }
 }
 
