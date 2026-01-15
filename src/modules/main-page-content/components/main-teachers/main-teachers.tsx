@@ -1,4 +1,6 @@
 import { useContext } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 import { Container } from '@/components/container';
 import { MainPageContext } from '@/store/main-page';
@@ -15,6 +17,9 @@ export const MainTeachers = () => {
       <Container>
         <div className={styles.wrapper}>
           <h2 className={styles.title}>Профессиональные тренеры</h2>
+          <Swiper>
+            <SwiperSlide></SwiperSlide>
+          </Swiper>
         </div>
       </Container>
     </section>
