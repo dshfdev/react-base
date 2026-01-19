@@ -24,15 +24,15 @@ export const TeachersSlider = ({ teachersList }: TeachersSliderProps) => {
   const scrollbarRef = useRef<HTMLDivElement | null>(null);
   const { isMobile } = useWindowSize();
 
-  const onSwiperInit = (swiper: SwiperType) => {
-    swiperRef.current = swiper;
-  };
-
   useEffect(() => {
     if (swiperRef.current && scrollbarRef.current) {
       swiperRef.current.scrollbar.init();
     }
   }, [teachersList]);
+
+  const onSwiperInit = (swiper: SwiperType) => {
+    swiperRef.current = swiper;
+  };
 
   const createSlideChangeHandler = (direction: 'next' | 'prev') => () => {
     if (!swiperRef.current) {
