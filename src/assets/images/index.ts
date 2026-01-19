@@ -4,7 +4,7 @@ import lisa from './lisa.png';
 import marina from './marina.png';
 import maxim from './maxim.png';
 
-export const teachersImages = {
+export const teachersImages: Record<string, string> = {
   irina,
   marina,
   maxim,

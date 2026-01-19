@@ -9,11 +9,13 @@ interface TeacherCardProps {
 }
 
 export const TeacherCard = ({ teacherCard: { name, imageSrc, description } }: TeacherCardProps) => {
-  const teacherImageSrc = teachersImages[imageSrc as keyof typeof teachersImages] || '';
-
   return (
     <div className={styles.teacherCard}>
-      <img src={teacherImageSrc} alt={`${name}, ${description}`} className={styles.image} />
+      <img
+        src={teachersImages[imageSrc]}
+        alt={`${name}, ${description}`}
+        className={styles.image}
+      />
       <h3 className={styles.name}>{name}</h3>
       <p className={styles.description}>{description}</p>
       <Button variant="text" additionalClassname={styles.button}>
