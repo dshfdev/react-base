@@ -2,7 +2,6 @@ import { forwardRef, type InputHTMLAttributes } from 'react';
 
 import styles from './input.module.scss';
 
-
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
@@ -33,12 +32,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             {rest.label}
           </label>
         )}
-        <input
-          id={inputId}
-          className={createClassname()}
-          ref={refInput}
-          {...rest}
-        />
+        <input id={inputId} className={createClassname()} ref={refInput} {...rest} />
         {error && <span className={styles.errorText}>{error}</span>}
       </div>
     );

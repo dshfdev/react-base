@@ -2,11 +2,14 @@
 
 .inputWrapper {
   position: relative;
-  display: flex;
 
   .label {
     position: absolute;
     overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
   }
 
   .input {
@@ -16,6 +19,7 @@
     border: 1px solid $controls-bg-quaternary;
     border-radius: 5px;
     font-size: 18px;
+    color: $text-color-primary;
 
     &:focus {
       border-color: $controls-bg-secondary;
@@ -32,7 +36,6 @@
   }
 
   .errorText {
-    display: none;
     position: absolute;
     left: 20px;
     top: 3px;
