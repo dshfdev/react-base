@@ -11,18 +11,18 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ error, additionalClassname, ...rest }, refInput) => {
     const inputId = rest.id || rest.name;
-    const createClassname = () => {
-      const baseClassname = `${styles.input}`;
+    const createInputClassname = () => {
+      let inputClass = styles.input;
 
       if (additionalClassname) {
-        return `${baseClassname} ${additionalClassname}`;
+        inputClass = `${styles.input} ${additionalClassname}`;
       }
 
       if (error) {
-        return `${baseClassname} ${styles.error}`;
+        inputClass = `${styles.input} ${styles.error}`;
       }
 
-      return baseClassname;
+      return inputClass;
     };
 
     return (
@@ -32,7 +32,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             {rest.label}
           </label>
         )}
-        <input id={inputId} className={createClassname()} ref={refInput} {...rest} />
+        <input id={inputId} className={createInputClassname()} ref={refInput} {...rest} />
         {error && <span className={styles.errorText}>{error}</span>}
       </div>
     );
