@@ -1,5 +1,8 @@
+import { useState } from 'react';
+
 import { teachersImages } from '@/assets/images';
 import { Button } from '@/components/button';
+import { Modal } from '@/components/modal';
 import type { TeacherListType } from '@/types/teacher';
 
 import styles from './teacher-card.module.scss';
@@ -9,6 +12,16 @@ interface TeacherCardProps {
 }
 
 export const TeacherCard = ({ teacherCard: { name, imageSrc, description } }: TeacherCardProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className={styles.teacherCard}>
       <img
@@ -18,9 +31,10 @@ export const TeacherCard = ({ teacherCard: { name, imageSrc, description } }: Te
       />
       <h3 className={styles.name}>{name}</h3>
       <p className={styles.description}>{description}</p>
-      <Button variant="text" additionalClassname={styles.button}>
+      <Button onClick={handleButtonClick} variant="text" additionalClassname={styles.button}>
         Подробнее
       </Button>
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 };
