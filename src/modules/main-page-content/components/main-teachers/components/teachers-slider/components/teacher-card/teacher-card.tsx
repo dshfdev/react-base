@@ -7,6 +7,8 @@ import type { TeacherListType } from '@/types/teacher';
 
 import styles from './teacher-card.module.scss';
 
+import { TeacherModalContent } from './components/teacher-modal-content/teacher-modal-content';
+
 interface TeacherCardProps {
   teacherCard: TeacherListType;
 }
@@ -34,7 +36,9 @@ export const TeacherCard = ({ teacherCard: { name, imageSrc, description } }: Te
       <Button onClick={handleButtonClick} variant="text" additionalClassname={styles.button}>
         Подробнее
       </Button>
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <TeacherModalContent teacherId={999} />
+      </Modal>
     </div>
   );
 };

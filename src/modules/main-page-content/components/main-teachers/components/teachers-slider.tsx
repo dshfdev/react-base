@@ -11,7 +11,7 @@ import { Button } from '@/components/button';
 import { useWindowSize } from '@/hooks';
 import type { TeacherListType } from '@/types/teacher';
 
-import { TeacherCard } from '../components/teacher-card';
+import { TeacherCard } from './teachers-slider/components/teacher-card';
 
 import styles from './teachers-slider.module.scss';
 
