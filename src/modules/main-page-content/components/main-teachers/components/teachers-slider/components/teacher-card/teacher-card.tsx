@@ -5,15 +5,17 @@ import { Button } from '@/components/button';
 import { Modal } from '@/components/modal';
 import type { TeacherListType } from '@/types/teacher';
 
-import styles from './teacher-card.module.scss';
-
 import { TeacherModalContent } from './components/teacher-modal-content/teacher-modal-content';
+
+import styles from './teacher-card.module.scss';
 
 interface TeacherCardProps {
   teacherCard: TeacherListType;
 }
 
-export const TeacherCard = ({ teacherCard: { name, imageSrc, description } }: TeacherCardProps) => {
+export const TeacherCard = ({
+  teacherCard: { id, name, imageSrc, description },
+}: TeacherCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleButtonClick = () => {
@@ -37,7 +39,7 @@ export const TeacherCard = ({ teacherCard: { name, imageSrc, description } }: Te
         Подробнее
       </Button>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <TeacherModalContent teacherId={999} />
+        <TeacherModalContent teacherId={id} />
       </Modal>
     </div>
   );
