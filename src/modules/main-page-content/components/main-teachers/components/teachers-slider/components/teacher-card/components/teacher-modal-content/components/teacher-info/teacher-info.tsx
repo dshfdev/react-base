@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 import { teachersImages } from '@/assets/images';
 import { Link } from '@/components/link';
+import { Tabs } from '@/components/tabs';
+import type { Option } from '@/types/select-option';
 import type { TeacherType } from '@/types/teacher';
 
 import { TabContent } from '../tab-content/tab-content';
@@ -15,7 +17,33 @@ interface TeacherModalProps {
 export const TeacherInfo = ({
   teacherContent: { name, imageSrc, description, links, tabs },
 }: TeacherModalProps) => {
+  // сразу же высчитываем массив опций
+  const tabsOptions: Option[] = tabs.map((tab) => {
+    return { value: tab.name, label: tab.title };
+  });
+
+  // храним состояния
+  const [activeTab, setActiveTab] = useState(tabsOptions[0]);
   const [activeTabContent, setActiveTabContent] = useState(tabs[0].data);
+
+  // по клику на таб устанавливаем активный таб и контент
+  const onTabClickHandler = (value: Option) => {
+    setActiveTab(value);
+    setActiveTabContent(createActiveTab(value));
+  };
+
+  // просто функция для пересчета значения таба
+  const createActiveTab = (value: Option) => {
+    const activeTab = tabs.find((tab) => {
+      return tab.name === value.value;
+    });
+
+    if (!activeTab) {
+      return activeTabContent;
+    }
+
+    return activeTab.data;
+  };
 
   return (
     <div className={styles.teacherInfo}>
@@ -33,6 +61,7 @@ export const TeacherInfo = ({
           </div>
         </div>
       </div>
+      <Tabs tabs={tabsOptions} activeTab={activeTab} onTabClick={onTabClickHandler} />
       <div className={styles.teacherTabContent}>
         {activeTabContent.map((tab, index) => (
           <TabContent key={index} title={tab.title} text={tab.text} />
