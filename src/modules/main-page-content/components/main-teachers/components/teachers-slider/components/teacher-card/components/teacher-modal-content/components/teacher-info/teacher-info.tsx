@@ -2,7 +2,9 @@ import { useState } from 'react';
 
 import { teachersImages } from '@/assets/images';
 import { Link } from '@/components/link';
+import { Select } from '@/components/select';
 import { Tabs } from '@/components/tabs';
+import { useWindowSize } from '@/hooks';
 import type { Option } from '@/types/select-option';
 import type { TeacherType } from '@/types/teacher';
 
@@ -25,6 +27,8 @@ export const TeacherInfo = ({
   // храним состояния
   const [activeTab, setActiveTab] = useState(tabsOptions[0]);
   const [activeTabContent, setActiveTabContent] = useState(tabs[0].data);
+
+  const { isMobile } = useWindowSize();
 
   // по клику на таб устанавливаем активный таб и контент
   const onTabClickHandler = (value: Option) => {
@@ -61,7 +65,11 @@ export const TeacherInfo = ({
           </div>
         </div>
       </div>
-      <Tabs tabs={tabsOptions} activeTab={activeTab} onTabClick={onTabClickHandler} />
+      {isMobile ? (
+        <Select options={tabsOptions} value={activeTab} onChange={onTabClickHandler} />
+      ) : (
+        <Tabs tabs={tabsOptions} activeTab={activeTab} onTabClick={onTabClickHandler} />
+      )}
       <div className={styles.teacherTabContent}>
         {activeTabContent.map((tab, index) => (
           <TabContent key={index} title={tab.title} text={tab.text} />

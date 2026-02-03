@@ -1,0 +1,57 @@
+@use '@/styles/variables.scss' as *;
+
+.select {
+  position: relative;
+  width: 100%;
+  color: $controls-color-primary;
+  margin-top: 20px;
+
+  .selectBtn {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: $controls-bg-primary;
+    color: $text-color-secondary;
+    font-size: 16px;
+    line-height: 1.6;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background-color: $controls-bg-primary-hover;
+    }
+
+    .icon {
+      &.iconOpen {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .selectOptions {
+    position: absolute;
+    width: 100%;
+    top: calc(100% + 3px);
+    left: 0;
+    background-color: $controls-bg-quaternary;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    z-index: 1;
+
+    .option {
+      padding: 10px;
+      cursor: pointer;
+      background-color: $controls-bg-primary;
+      text-align: center;
+      color: $text-color-secondary;
+
+      &.active {
+        background-color: $controls-bg-primary-hover;
+      }
+    }
+  }
+}
