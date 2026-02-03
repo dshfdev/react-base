@@ -48,11 +48,10 @@
   .teacherTabContent {
     position: relative;
     margin-top: 20px;
-    height: 346px;
+    height: 354px;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: $controls-bg-secondary $controls-bg-tertiary;
-    padding-bottom: 30px;
     padding-right: 10px;
 
     &::-webkit-scrollbar {
@@ -65,8 +64,7 @@
     }
 
     .teacherTabEnd {
-      content: '';
-      position: absolute;
+      position: sticky;
       bottom: 0;
       left: 0;
       right: 8px;
@@ -109,11 +107,10 @@
     .teacherTabContent {
       height: 100%;
       margin-top: 20px;
-      padding-bottom: 20px;
       padding-right: 0;
       overflow-y: unset;
 
-      .tabEnd {
+      .teacherTabEnd {
         position: fixed;
         height: 22px;
       }

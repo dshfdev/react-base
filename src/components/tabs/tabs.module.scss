@@ -5,17 +5,17 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 20px;
-}
 
-.tabBtn {
-  padding: 20px 0;
-  text-align: left;
+  .tabBtn {
+    padding: 20px 0;
+    text-align: left;
 
-  &:hover {
-    color: $text-color-tertiary;
-  }
+    &:hover {
+      color: $text-color-tertiary;
+    }
 
-  &.active {
-    color: $controls-color-error;
+    &.active {
+      color: $controls-color-error;
+    }
   }
 }
