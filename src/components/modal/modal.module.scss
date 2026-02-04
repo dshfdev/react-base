@@ -36,6 +36,12 @@
     font-size: 18px;
     color: $text-color-tertiary;
     cursor: pointer;
+
+    svg {
+      path {
+        fill: $controls-bg-secondary;
+      }
+    }
   }
 }
 
