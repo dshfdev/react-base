@@ -61,6 +61,10 @@ export const Select = ({ options, value, onChange, additionalClassname }: Select
         additionalClassname={styles.selectBtn}
         onClick={handleSelectClickBtn}
         type="button"
+        aria-controls="custom-select-listbox"
+        id="custom-select-button"
+        aria-haspopup="listbox"
+        aria-expanded={isSelectOpen}
       >
         {value.label}
         <span className={createIconClassname}>
@@ -69,7 +73,12 @@ export const Select = ({ options, value, onChange, additionalClassname }: Select
       </Button>
 
       {isSelectOpen && (
-        <div className={styles.selectOptions}>
+        <div
+          className={styles.selectOptions}
+          id="custom-select-listbox"
+          role="listbox"
+          aria-labelledby="custom-select-button"
+        >
           {options.map((option) => (
             <Button
               variant="text"
@@ -77,6 +86,8 @@ export const Select = ({ options, value, onChange, additionalClassname }: Select
               onClick={createOptionSelectHandler(option)}
               additionalClassname={createOptionClassname(option.value)}
               type="button"
+              role="option"
+              aria-selected={option.value === value.value}
             >
               {option.label}
             </Button>

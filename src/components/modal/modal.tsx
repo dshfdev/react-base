@@ -37,7 +37,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   };
 
   return createPortal(
-    <div className={styles.modal}>
+    <div className={styles.modal} role="dialog" aria-modal="true">
       <div className={styles.backdrop} onClick={handleModalClose} />
       <div className={styles.content}>
         {children}

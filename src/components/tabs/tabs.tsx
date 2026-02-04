@@ -23,14 +23,20 @@ export const Tabs = ({ tabs, activeTab, onTabClick, additionalClassname }: TabsP
   };
 
   return (
-    <div className={styles.tabs}>
-      {tabs.map((option) => (
+    <div className={styles.tabs} role="tablist">
+      {tabs.map(({ value, label }, index) => (
         <Button
-          key={option.value}
-          className={createTabClassname(option.value)}
-          onClick={createTabClickHandler(option)}
+          key={value}
+          className={createTabClassname(value)}
+          onClick={createTabClickHandler(tabs[index])}
+          role="tab"
+          type="button"
+          aria-selected={value === activeTab.value}
+          aria-controls={`tab panel-${value}`}
+          id={`tab-${value}`}
+          tabIndex={value === activeTab.value ? 0 : -1}
         >
-          {option.label}
+          {label}
         </Button>
       ))}
     </div>
