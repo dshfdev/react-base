@@ -19,24 +19,20 @@ interface TeacherModalProps {
 export const TeacherInfo = ({
   teacherContent: { name, imageSrc, description, links, tabs },
 }: TeacherModalProps) => {
-  // сразу же высчитываем массив опций
   const tabsOptions: Option[] = tabs.map((tab) => {
     return { value: tab.name, label: tab.title };
   });
 
-  // храним состояния
   const [activeTab, setActiveTab] = useState(tabsOptions[0]);
   const [activeTabContent, setActiveTabContent] = useState(tabs[0].data);
 
   const { isMobile } = useWindowSize();
 
-  // по клику на таб устанавливаем активный таб и контент
   const onTabClickHandler = (value: Option) => {
     setActiveTab(value);
     setActiveTabContent(createActiveTab(value));
   };
 
-  // просто функция для пересчета значения таба
   const createActiveTab = (value: Option) => {
     const activeTab = tabs.find((tab) => {
       return tab.name === value.value;

@@ -18,20 +18,15 @@ export const TeacherModalContent = ({ teacherId }: TeacherModalProps) => {
 
   useEffect(() => {
     getTeacherById(teacherId)
-      // then вызывается на fulfilled
       .then((data) => {
-        // в коллбэке можно получить то, что вернулось из запроса
-        setError(false); // т.к. запрос успешен, надо обязательно занулить ошибку
-        setTeacherContent(data); // и положить данные из запроса в стор
+        setError(false);
+        setTeacherContent(data);
       })
-      // catch вызывается на rejected
       .catch((reject: string) => {
-        // в зависимости от конфигурации ошибка может быть разной
-        setError(true); // обязательно состояние ошибки в true
-        console.log(reject); // как-то логаем ошибку
+        setError(true);
+        console.log(reject);
       })
-      // finally вызывается в любом случае всегда после окончания работы промиса
-      .finally(() => setIsLoading(false)); // зануляем состояние загрузки
+      .finally(() => setIsLoading(false));
   }, [teacherId]);
 
   return (
