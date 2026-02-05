@@ -1,15 +1,18 @@
-import React, { type PropsWithChildren } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import { Footer } from './components/footer';
 import { Header } from './components/header';
 
 import styles from './layout.module.scss';
 
-export const Layout = ({ children }: PropsWithChildren) => {
+
+export const Layout = () => {
   return (
     <div className={styles.layout}>
       <Header />
-      <main className={styles.main}>{children}</main>
+      <main className={styles.main}>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );
