@@ -1,0 +1,21 @@
+@use '@/styles/variables.scss' as *;
+
+.tabs {
+  border-bottom: 1px solid $controls-bg-tertiary;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 20px;
+
+  .tabBtn {
+    padding: 20px 0;
+    text-align: left;
+
+    &:hover {
+      color: $text-color-tertiary;
+    }
+
+    &.active {
+      color: $controls-color-error;
+    }
+  }
+}

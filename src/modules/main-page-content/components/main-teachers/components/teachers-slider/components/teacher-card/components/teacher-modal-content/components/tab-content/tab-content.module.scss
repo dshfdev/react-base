@@ -1,0 +1,32 @@
+@use '@/styles/variables.scss' as *;
+
+.tabContent {
+  .text {
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tabContent {
+    .text {
+      font-size: 14px;
+
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
+
+    .title {
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  }
+}
