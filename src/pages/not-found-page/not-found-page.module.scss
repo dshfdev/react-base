@@ -46,3 +46,13 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .notFoundPage {
+    .content {
+      .description {
+        text-align: center;
+      }
+    }
+  }
+}
