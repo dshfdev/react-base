@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
+
 import { CloseIcon } from '@/assets/icons';
 import { IconButton } from '@/components/icon-button';
-import { Link } from '@/components/link';
 
 import { NAVBAR_ITEMS } from '../../../../constants';
 
@@ -18,7 +19,7 @@ export const BurgerMenu = ({ isOpen, onClose }: BurgerMenuProps) => {
         <ul className={styles.navbar}>
           {NAVBAR_ITEMS.map((navbarItem) => (
             <li key={navbarItem.id}>
-              <Link href={navbarItem.href} onClick={onClose} additionalClassname={styles.link}>
+              <Link to={navbarItem.href} onClick={onClose} className={styles.link}>
                 {navbarItem.title}
               </Link>
             </li>
