@@ -16,7 +16,7 @@ export const TeacherCard = ({
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate(`/teacher/${id}`);
+    navigate(`/teacher/${id}`, { preventScrollReset: true });
   };
 
   return (
