@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { Modal } from '@/components/modal';
@@ -8,13 +7,9 @@ import { TeacherModalContent } from './components/teacher-modal-content';
 export const TeacherModalPage = () => {
   const { teacherId } = useParams();
   const navigate = useNavigate();
-  const [isOpenModal, setIsOpenModal] = useState(true);
 
   const handleModalClose = () => {
-    setIsOpenModal(false);
-    navigate('/', {
-      preventScrollReset: true,
-    });
+    navigate(-1);
   };
 
   if (!teacherId) {
@@ -22,7 +17,7 @@ export const TeacherModalPage = () => {
   }
 
   return (
-    <Modal isOpen={isOpenModal} onClose={handleModalClose}>
+    <Modal isOpen onClose={handleModalClose}>
       <TeacherModalContent teacherId={Number(teacherId)} />
     </Modal>
   );

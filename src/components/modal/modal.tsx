@@ -18,10 +18,9 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   useEffect(() => {
     if (isOpen) {
       lockScroll();
-      return;
+    } else {
+      unlockScroll();
     }
-
-    unlockScroll();
 
     return () => {
       unlockScroll();
