@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom';
+
 import styles from './logo.module.scss';
 
 export const Logo = () => {
   return (
-    <a href="/" className={styles.logo}>
+    <Link to="/" className={styles.logo}>
       ROBO.SCHOOL
-    </a>
+    </Link>
   );
 };

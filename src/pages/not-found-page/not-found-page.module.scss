@@ -1,0 +1,57 @@
+@use '@/styles/variables.scss' as *;
+
+.notFoundPage {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  background-color: $bg-color-tertiary;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      font-size: 70px;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .description {
+      font-size: 18px;
+      color: $text-color-tertiary;
+    }
+
+    .actions {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .action {
+        font-size: 18px;
+        color: $controls-color-error;
+        margin-top: 20px;
+
+        &:hover {
+          color: $controls-bg-primary-hover;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .notFoundPage {
+    .content {
+      .description {
+        text-align: center;
+      }
+    }
+  }
+}

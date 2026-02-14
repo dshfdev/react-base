@@ -1,11 +1,8 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { teachersImages } from '@/assets/images';
 import { Button } from '@/components/button';
-import { Modal } from '@/components/modal';
 import type { TeacherListType } from '@/types/teacher';
-
-import { TeacherModalContent } from './components/teacher-modal-content/teacher-modal-content';
 
 import styles from './teacher-card.module.scss';
 
@@ -16,14 +13,10 @@ interface TeacherCardProps {
 export const TeacherCard = ({
   teacherCard: { id, name, imageSrc, description },
 }: TeacherCardProps) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+    navigate(`/teacher/${id}`, { preventScrollReset: true });
   };
 
   return (
@@ -38,9 +31,6 @@ export const TeacherCard = ({
       <Button onClick={handleButtonClick} variant="text" additionalClassname={styles.button}>
         Подробнее
       </Button>
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <TeacherModalContent teacherId={id} />
-      </Modal>
     </div>
   );
 };
